@@ -1,0 +1,120 @@
+% LaTeX Calculus Template - Christopher Anderson http://github.com/crander/TeX-eX/
+\documentclass[12pt,a4paper,anypage]{report}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage[textheight=25.5cm,left=2.2cm,right=2.2cm,top=2.5cm,footskip=1.5cm]{geometry}
+
+% Enviornment
+\hypersetup{colorlinks,citecolor=violet,linkcolor=red,urlcolor=blue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[l]{ASSIGNMENT\\CLASS}
+\fancyhead[r]{NAME\\\today}
+\lfoot{\href{http://localhost/calculus.tex}{\LaTeX{}}
+       \href{http://localhost/calculus.pdf}{PDF}
+      }
+\rfoot{\thepage}
+
+\setlength{\parskip}{4.0mm}
+\setlength{\parindent}{0.0mm}
+\newcounter{questionnumber}
+\setcounter{questionnumber}{0}
+\newcounter{myenumeratecounter}
+\setcounter{myenumeratecounter}{0}
+\renewcommand{\themyenumeratecounter}{\alph{myenumeratecounter}}
+\newcommand{\myitem}{\addtocounter{myenumeratecounter}{1} \themyenumeratecounter). \hspace{2mm}}
+\newenvironment{question}[1]{\addtocounter{questionnumber}{1}{{\bf\thequestionnumber}) {\em{#1}}\setcounter{myenumeratecounter}{0}}}{}
+\newcommand{\dd}{\displaystyle}
+
+% Document
+\begin{document}
+\begin{question}{}
+Let \boxed{u = \frac{\pi}{x}\text{ , } du=-\frac{\pi}{x^2}dx\text{ , and } -\frac{du}{\pi}=\frac{dx}{x^2}}
+
+\begin{eqnarray*}
+  \int{\frac{\cos\left(\frac{\pi}{x}\right)}{x^2}dx} &=& -\frac{1}{\pi}\int{\cos(u)du}\\
+                                                     &=&-\frac{1}{\pi}\sin\left(\frac{\pi}{x}\right)+C\\
+                                                     &=&-\frac{\sin\left(\frac{\pi}{x}\right)}{\pi}+C
+\end{eqnarray*}
+
+\end{question}
+
+\begin{question}{}
+
+\end{question}
+
+% From Dr. Chris Hughes http://spot.pcc.edu/~chughes/latexdemofiles/252,PCC,integration,tips.tex - check his great LaTeX tutorial.
+{\bf Integral Calculus Examples You May Need:}
+
+`The Power Rule'
+\[
+\frac{d}{dx}x^n = nx^{n-1},
+\]
+where $n$ is any real number. Reversing the power rule to find an antiderivative is equally straight forward, and we have that
+\[
+\int x^n dx= \frac{x^{n+1}}{n+1} + C,
+\]
+
+Integration by Parts with the following choices of $u$ and $v$
+\begin{eqnarray*}
+  u = 2x, &&dv=e^x,\\
+  du=2,&&v=e^x.
+\end{eqnarray*}
+This now gives
+\begin{eqnarray*}
+  \int x^2e^xdx&=&x^2e^x - \left(2xe^x - \int 2e^xdx \right)\\
+  &=&x^2e^x-2xe^x+2e^x + C\\
+  &=&(x^2-2x+2)e^x+C.
+\end{eqnarray*}
+
+Evaluating definite integrals using integration by parts is done in the following way. We consider
+\[
+\int_0^\pi x\sin(x)dx.
+\]
+Then from our work earlier on this handout, we have that
+\begin{eqnarray*}
+  \int_0^\pi x\sin(x)dx &=&\left[-x\cos(x)\right]^\pi_0 + \int_0^\pi \cos(x)dx \\
+  &=&-\pi\cos(\pi) - ( -0\cos(0)) + [\sin(x)]_0^\pi\\
+  &=&-\pi(-1) - 0 + (0-0)\\
+  &=&\pi
+\end{eqnarray*}
+
+{\bf Trigonometric functions}
+
+The following three identities (among others) are often useful when dealing with trigonometric functions
+\begin{equation*}
+  \left\{
+  \begin{array}{rcl}
+    \sin^2(\theta)+\cos^2(\theta)&=&1,\\
+    \sin(m\theta \pm n\theta)&=&\sin(m\theta)\cos(n\theta)\pm\sin(n\theta)\cos (m\theta),\\
+    \cos(m\theta\pm n\theta)&=&\cos (m\theta)\cos (n\theta) \mp \sin(m\theta)\sin (n\theta).
+    \end{array}
+  \right.
+\end{equation*}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
